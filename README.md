@@ -99,27 +99,6 @@ Aşağıdaki senaryolar test edilmiştir:
 
 Projedeki birim testlerin sadece varlığı değil, kodun ne kadarını test ettiğiniz de önemlidir. Bu amaçla, `coverlet` ve `ReportGenerator` araçları ile test coverage raporu üretimi eklenmiştir.
 
-### Kurulum
-
-```bash
-dotnet tool install --global dotnet-reportgenerator-globaltool
-```
-
-### Coverage Hesaplama Komutu
-
-```bash
-cd ProductManagement.Tests
-
-dotnet test /p:CollectCoverage=true \
-  /p:CoverletOutput=./TestResults/ \
-  /p:CoverletOutputFormat=lcov
-
-reportgenerator \
-  -reports:./TestResults/coverage.info \
-  -targetdir:./TestResults/CoverageReport \
-  -reporttypes:Html
-```
-
 ### Raporu Görüntüleme
 
 ```
@@ -128,43 +107,8 @@ reportgenerator \
 Aşağıdaki komut ile oluşturulan HTML dosyasını açarak coverage raporunu görsel olarak inceleyebilirsiniz:
 
 ```bash
-start ProductManagement.Tests/TestResults/CoverageReport/index.html
-```
-
-> Not: Eğer Windows dışında bir sistem kullanıyorsanız, ilgili dosyayı tarayıcınızda manuel açabilirsiniz.
-
-ProductManagement.Tests/TestResults/CoverageReport/index.html
-```
-
----
-
-## Test Kapsama (Coverage)
-
-Kodun ne kadarının test edildiğini görmek için aşağıdaki adımları takip edebilirsiniz:
-
-### 1. Paket Kurulumu
-
-```bash
-dotnet add ProductManagement.Tests package coverlet.collector
-dotnet tool install --global dotnet-reportgenerator-globaltool
-```
-
-### 2. Coverage Raporu Oluşturma
-
-```bash
-dotnet test ProductManagement.Tests --collect:"XPlat Code Coverage"
-```
-
-Komuttan sonra `TestResults` klasöründe `coverage.cobertura.xml` oluşur.
-
-### 3. HTML Raporu Üret ve Aç
-
-```bash
-reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
 start coveragereport/index.html
 ```
-
-> Windows dışı sistemlerde `open` veya `xdg-open` komutları kullanılabilir.
 
 ## Veritabanı Bilgisi (SQLite)
 
