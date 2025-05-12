@@ -106,8 +106,8 @@ Projedeki birim testlerin sadece varlığı değil, kodun ne kadarını test ett
 
 Aşağıdaki komut ile oluşturulan HTML dosyasını açarak coverage raporunu görsel olarak inceleyebilirsiniz:
 
-```bash
-start coveragereport/index.html
+-- start coveragereport/index.html
+
 ```
 
 ## Veritabanı Bilgisi (SQLite)
